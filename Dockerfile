@@ -8,4 +8,4 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-ENTRYPOINT ["python", "-m", "flask", "run", "--host=0.0.0.0", "--debug"]
+ENTRYPOINT ["python", "-m", "flask", "run", "--host=0.0.0.0"]
