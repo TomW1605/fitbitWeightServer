@@ -23,11 +23,11 @@ class Settings(BaseSettings):
 
 config = Settings()
 
+if config.base_url.endswith('/'):
+    config.base_url = config.base_url[:-1]
+
 if config.redirect_url is None:
-    if config.base_url.endswith('/'):
-        config.redirect_url = config.base_url + 'callback'
-    else:
-        config.redirect_url = config.base_url + '/callback'
+    config.redirect_url = config.base_url + '/callback'
 
 app = Flask(__name__)
 
@@ -36,7 +36,7 @@ user_keys = {}
 
 @app.route('/')
 def home():
-    return redirect(url_for('login'))
+    return redirect(url_for('login', _external=True))
 
 @app.route('/login')
 def login():
