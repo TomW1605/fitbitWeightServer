@@ -32,6 +32,7 @@ if config.redirect_url is None:
 app = Flask(__name__)
 if config.base_url.count('/') > 2:
     app.config['SCRIPT_NAME'] = config.base_url.split('/', 3)[-1]
+    app.config['APPLICATION_ROOT'] = config.base_url.split('/', 3)[-1]
 
 # Dictionary to store user keys and Fitbit access tokens
 user_keys = {}
