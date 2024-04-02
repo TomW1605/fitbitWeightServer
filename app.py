@@ -30,6 +30,8 @@ if config.redirect_url is None:
     config.redirect_url = config.base_url + '/callback'
 
 app = Flask(__name__)
+if config.base_url.count('/') > 2:
+    app.config['SCRIPT_NAME'] = config.base_url.split('/', 3)[-1]
 
 # Dictionary to store user keys and Fitbit access tokens
 user_keys = {}
