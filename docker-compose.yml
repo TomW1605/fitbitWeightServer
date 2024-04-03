@@ -1,9 +1,9 @@
 version: '3.8'
 services:
-  fitbitWeightServer:
+  fitbitweightserver:
     container_name: fitbit_weight_server
-    image: ghcr.io/tomw1605/fitbitweightserver:master
-#    build: ./
+#    image: ghcr.io/tomw1605/fitbitweightserver:master
+    build: ./
     env_file: .env
     ports:
       - 5000:5000
